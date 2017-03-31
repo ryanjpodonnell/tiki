@@ -1,0 +1,15 @@
+<h1>Editing cocktail</h1>
+
+<form action="<%= cocktail_url(@cocktail.id) %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <input type="text" name="cocktail[name]" value="<%= @cocktail.name %>">
+
+  <%= collection_check_boxes :cocktail, :ingredient_ids, Ingredient.all, :id, :name %>
+
+  <input type="submit" value="Edit Cocktail">
+</form>
+
+<%= link_to 'Show', @cocktail %> |
+<%= link_to 'Back', cocktails_path %>

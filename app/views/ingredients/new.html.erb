@@ -1,0 +1,9 @@
+<h1>Ingredients#new</h1>
+<p>Find me in app/views/ingredients/new.html.erb</p>
+
+<form action="<%= ingredients_url %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="text" name="ingredient[name]">
+
+  <input type="submit" value="Create Ingredient">
+</form>

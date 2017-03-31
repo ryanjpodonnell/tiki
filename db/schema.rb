@@ -11,15 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170217205141) do
+ActiveRecord::Schema.define(version: 20170331162827) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "cocktails", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "cocktails_ingredients", force: true do |t|
+    t.integer "cocktail_id"
+    t.integer "ingredient_id"
+  end
+
+  add_index "cocktails_ingredients", ["cocktail_id"], name: "index_cocktails_ingredients_on_cocktail_id", using: :btree
+  add_index "cocktails_ingredients", ["ingredient_id"], name: "index_cocktails_ingredients_on_ingredient_id", using: :btree
+
   create_table "ingredients", force: true do |t|
     t.string   "name"
-    t.decimal  "quantity"
-    t.string   "units"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
