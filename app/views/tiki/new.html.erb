@@ -1,0 +1,9 @@
+<h1>Tiki Time</h1>
+
+<form action="/tiki/party" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <%= collection_check_boxes :tiki, :ingredient_ids, Ingredient.all, :id, :name %>
+
+  <input type="submit" value="Submit">
+</form>

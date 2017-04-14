@@ -1,7 +1,6 @@
 Smugglerscovebuddy::Application.routes.draw do
-  get "ingredients/new"
-  get "ingredients/create"
   root to: 'tiki#new'
+  post 'tiki/party'
 
   resources :cocktails
   resources :ingredients

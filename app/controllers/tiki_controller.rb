@@ -1,5 +1,15 @@
 class TikiController < ActionController::Base
   def new
-    render inline: "FUCKIN TIKI"
+  end
+
+  def party
+    @cocktails = Cocktail.where()
+    puts tiki_params
+  end
+
+  private
+
+  def tiki_params
+    params.require(:tiki).permit({ingredient_ids: []})
   end
 end
